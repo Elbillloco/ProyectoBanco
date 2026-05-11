@@ -10,7 +10,7 @@ public class VentanaLogin extends JFrame {
 
     public VentanaLogin() {
         setTitle("Banco Java - Acceso");
-        setSize(1350, 1280);
+        setSize(750, 680);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new GridLayout(5, 1, 10, 5));
