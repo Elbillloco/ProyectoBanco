@@ -1,4 +1,4 @@
-package com.banco.model;
+package com.banco.modelo;
 
 import java.sql.Timestamp;
 
