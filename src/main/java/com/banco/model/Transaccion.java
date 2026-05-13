@@ -11,7 +11,7 @@ public class Transaccion {
     private String tipoTransaccion;
     private Timestamp fecha;
 
-    private String emisorNombre;  // Para consultas JOIN
+    private String emisorNombre;
     private String receptorNombre;
 
 

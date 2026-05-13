@@ -1,20 +1,52 @@
 package com.banco.gui;
 
-import com.banco.model.Usuario;
-import com.banco.model.Transaccion;
-import com.banco.service.TransaccionService;
-import com.banco.service.UsuarioService;
-import com.banco.utils.SessionManager;
-import com.formdev.flatlaf.FlatClientProperties;
-import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.table.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Frame;
+import java.awt.Graphics2D;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Insets;
+import java.awt.RenderingHints;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.text.SimpleDateFormat;
 import java.util.List;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.SwingWorker;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+
+import com.banco.model.Transaccion;
+import com.banco.model.Usuario;
+import com.banco.service.TransaccionService;
+import com.banco.service.UsuarioService;
+import com.banco.utils.SessionManager;
 
 public class VentanaPrincipal extends JFrame {
     private Usuario usuarioActual;
@@ -90,12 +122,12 @@ public class VentanaPrincipal extends JFrame {
 
         // Menú de navegación
         String[][] menuItems = {
-                {"🏠", "Inicio", "home"},
-                {"💳", "Transferencias", "transfer"},
-                {"📊", "Mis Cuentas", "accounts"},
-                {"📜", "Historial", "history"},
-                {"⚙️", "Configuración", "settings"},
-                {"🚪", "Cerrar Sesión", "logout"}
+                {"Inicio", "home"},
+                {"Transferencias", "transfer"},
+                {"Mis Cuentas", "accounts"},
+                {"Historial", "history"},
+                {"Configuración", "settings"},
+                {"Cerrar Sesión", "logout"}
         };
 
         for (String[] item : menuItems) {
@@ -225,9 +257,9 @@ public class VentanaPrincipal extends JFrame {
         botonesPanel.setBorder(BorderFactory.createEmptyBorder(20, 0, 0, 0));
 
         String[][] acciones = {
-                {"💰", "Transferir Dinero", "#4CAF50"},
-                {"📱", "Pagar Servicios", "#2196F3"},
-                {"📄", "Generar Estado de Cuenta", "#FF9800"}
+                {"Transferir Dinero", "#4CAF50"},
+                {"Pagar Servicios", "#2196F3"},
+                {"Generar Estado de Cuenta", "#FF9800"}
         };
 
         for (String[] accion : acciones) {
@@ -280,7 +312,6 @@ public class VentanaPrincipal extends JFrame {
         tablaTransacciones.setShowGrid(false);
         tablaTransacciones.setIntercellSpacing(new Dimension(0, 0));
 
-        // Renderizador personalizado para la columna de monto
         tablaTransacciones.getColumnModel().getColumn(2).setCellRenderer(new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable table, Object value,

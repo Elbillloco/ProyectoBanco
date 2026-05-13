@@ -1,12 +1,17 @@
 package com.banco.dao;
 
-import com.banco.config.DatabaseConfig;
-import com.banco.model.Usuario;
-import org.mindrot.jbcrypt.BCrypt;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.mindrot.jbcrypt.BCrypt;
+
+import com.banco.config.DatabaseConfig;
+import com.banco.model.Usuario;
 
 public class UsuarioDAO {
 

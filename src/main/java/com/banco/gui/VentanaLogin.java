@@ -1,12 +1,38 @@
 package com.banco.gui;
 
-import com.banco.service.UsuarioService;
-import com.banco.model.Usuario;
-import javax.swing.*;
-import javax.swing.border.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Insets;
+import java.awt.RenderingHints;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.SwingWorker;
+
+import com.banco.model.Usuario;
+import com.banco.service.UsuarioService;
 
 public class VentanaLogin extends JFrame {
     private JTextField txtUser;
@@ -60,7 +86,7 @@ public class VentanaLogin extends JFrame {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(10, 10, 10, 10);
 
-        JLabel lblTitle = new JLabel("🏦 Banco Digital", SwingConstants.CENTER);
+        JLabel lblTitle = new JLabel("Banco Digital", SwingConstants.CENTER);
         lblTitle.setFont(new Font("Segoe UI", Font.BOLD, 32));
         lblTitle.setForeground(Color.WHITE);
         gbc.gridx = 0;
@@ -77,7 +103,7 @@ public class VentanaLogin extends JFrame {
         gbc.gridy = 2;
         panel.add(Box.createVerticalStrut(30), gbc);
 
-        JLabel lblUser = new JLabel("📧 Correo o Usuario");
+        JLabel lblUser = new JLabel("Usuario");
         lblUser.setFont(new Font("Segoe UI", Font.BOLD, 12));
         lblUser.setForeground(Color.WHITE);
         gbc.gridy = 3;
@@ -89,7 +115,7 @@ public class VentanaLogin extends JFrame {
         gbc.gridy = 4;
         panel.add(txtUser, gbc);
 
-        JLabel lblPass = new JLabel("🔒 Contraseña");
+        JLabel lblPass = new JLabel("Contraseña");
         lblPass.setFont(new Font("Segoe UI", Font.BOLD, 12));
         lblPass.setForeground(Color.WHITE);
         gbc.gridy = 5;
